@@ -1,0 +1,64 @@
+{% extends 'app_guias/base.html' %}
+
+
+{% block contenido %}
+
+<section>
+    <div>
+      <h1>Lista de guías aéreas </h1>        
+        <a class="btn btn-primary btn-xs p-1 " href="{% url 'crear_guia' %}">Nuevo Guía</a>
+        <br>
+        <br>
+        <form action="{% url 'buscar_guias' %}" method="post">
+          {% csrf_token %}
+          <input type="text" name="busqueda">
+          <input type="submit" value="Buscar x agente">
+        </form>
+        <br>
+
+      <ul>
+        <table class="table">
+          <body>
+            <tr>
+              <th>N° OT</th>
+              <th>Area</th>
+              <th>Forwarder</th>
+              <th>Guia madre</th>
+              <th>Guia hija</th>
+              <th>ATA</th>
+              <th>Estado</th>
+              
+            </tr>  
+            {% for guia in object_list %}
+            <tr>
+              <td>{{ guia.ot }}</td>
+              <td>{{ guia.area }}</td>
+              <td>{{ guia.abrev_fwr }}</td>
+              <td>{{ guia.mawb }}</td>
+              <td>{{ guia.hawb }}</td>
+              <td>{{ gua.ata }}</td>
+              <td>{{ guia.estado }}</td>
+              <td>
+                <a href="{% url 'detalle_guia' guia.id %}">
+                  <i class="bi-eye-fill"></i>
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'actualiza_guia' guia.id %}">
+                  <i class="bi-pencil-fill"></i>
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'elimina_guia' guia.id %}">
+                  <i class="bi bi-trash"></i>
+                </a>
+              </td>
+            </tr>          
+            {% endfor %}
+          </tbody>
+        </table>
+        </ul>
+    </div>
+  </section>
+        
+{% endblock contenido %} 

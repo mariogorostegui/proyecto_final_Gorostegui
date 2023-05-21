@@ -1,0 +1,30 @@
+{% extends "app_guias/base.html" %}
+
+{% block contenido %}
+
+<p>
+  <strong>Numero de OT:</strong> {{object.ot}} <strong>Area:</strong> {{object.area}}
+</p>
+<p>
+  <strong>Agentede carga:</strong> {{object.abrev_fwr}} <strong>Incoterm:</strong> {{object.incoterm}}  <strong>Cotizacion:</strong> {{object.cotizacion}}
+</p>
+<p>
+    <strong>Guia Madre:</strong> {{object.mawb}}     <strong>Guia hija:</strong> {{object.hawb}}
+</p>
+<p>
+  <strong>Cantida de bultos:</strong> {{object.bultos}} <strong>Peso:</strong> {{object.peso}}  <strong>Volumen:</strong> {{object.Volumen}}
+</p>
+<p>
+  <strong>Fecha de salida:</strong> {{object.atd}}  <strong>Fecha de llegada:</strong> {{object.ata}}
+</p>
+<p>
+  <strong>Estado:</strong> {{object.estado}}
+</p>
+<p>
+  <strong>Retirada</strong> {{object.retiro}}
+</p>
+
+<br>
+<a href="{% url 'Guias' %}">Volver lista</a>
+
+{% endblock contenido %}

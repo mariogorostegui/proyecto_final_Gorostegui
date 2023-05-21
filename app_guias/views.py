@@ -87,3 +87,42 @@ def buscar_usuario (request):
             context = contexto
         )
     return http_responde 
+
+
+class GuiasListView(ListView):
+    model = Cargas
+    template_name = 'app_guias/lista_guias.html'
+    
+class GuiasDeleteView(DeleteView):
+    model = Cargas
+    success_url = reverse_lazy ('Guias')
+    
+class GuiasDetailView(DetailView):
+    model = Cargas
+    success_url = reverse_lazy ('Guias')
+    
+class GuiasUpdateView(UpdateView):
+    model  = Cargas
+    fields = ('ot', 'area','abrev_fwr', 'mawb','hawb','incoterm','cotizacion','bultos','peso','volumen','atd','ata','estado','retiro')
+    success_url = reverse_lazy ('Guias')
+    
+class GuiasCreateView(CreateView):
+    model  = Cargas
+    fields = ('ot', 'area','abrev_fwr', 'mawb','hawb','incoterm','cotizacion','bultos','peso','volumen','atd','ata','estado','retiro')
+    success_url = reverse_lazy ('Guias')
+
+
+def buscar_guias (request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data ["busqueda"]
+        cargas = Cargas.objects.filter(abrev_fwr__contains = busqueda)
+        contexto = {
+            "object_list" : cargas,
+        }
+    http_responde=render(
+            request = request,
+            template_name= "app_guias/lista_guias.html",
+            context = contexto
+        )
+    return http_responde 

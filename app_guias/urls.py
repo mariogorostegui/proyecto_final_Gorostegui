@@ -2,9 +2,10 @@ from django.contrib import admin
 from django.urls import path
 
 
-from app_guias.views import AgentesListView,UsuariosListView,AgentesDetailView,AgentesUpdateView,AgentesDeleteView,AgentesCreateView, \
+from app_guias.views import AgentesListView,AgentesDetailView,AgentesUpdateView,AgentesDeleteView,AgentesCreateView, \
     buscar_agente, \
-    UsuariosCreateView,UsuariosDeleteView,UsuariosDetailView,UsuariosListView,UsuariosUpdateView, buscar_usuario
+    UsuariosCreateView,UsuariosDeleteView,UsuariosDetailView,UsuariosListView,UsuariosUpdateView, buscar_usuario, \
+    GuiasCreateView,GuiasDeleteView,GuiasDetailView,GuiasListView,GuiasUpdateView, buscar_guias
 
 
 urlpatterns = [
@@ -22,9 +23,14 @@ urlpatterns = [
     path("actualiza_usuario/<int:pk>/",UsuariosUpdateView.as_view(),name = "actualiza_usuario"),
     path("elimina_usuario/<int:pk>/",UsuariosDeleteView.as_view(),name = "borra_usuario"),
     path("crear_usuario/",UsuariosCreateView.as_view(),name = "crear_usuario"),
-    path("buscar_usuario/",buscar_usuario,name='buscar_usuario')
+    path("buscar_usuario/",buscar_usuario,name='buscar_usuario'),
     
-    
+    path ("guias/",GuiasListView.as_view(),name="Guias"), 
+    path("detalle_guia/<int:pk>/",GuiasDetailView.as_view(),name = "detalle_guia"),
+    path("actualiza_guia/<int:pk>/",GuiasUpdateView.as_view(),name = "actualiza_guia"),
+    path("elimina_guia/<int:pk>/",GuiasDeleteView.as_view(),name = "elimina_guia"),
+    path("crear_guia/",GuiasCreateView.as_view(),name = "crear_guia"),
+    path("buscar_guia/",buscar_guias,name='buscar_guias'),
 
     
 ]
