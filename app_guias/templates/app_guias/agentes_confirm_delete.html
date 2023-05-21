@@ -5,7 +5,7 @@
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <p>¿Estas seguro deseas eliminar {{object}}?</p>
+  <p>¿Estas seguro deseas eliminar <strong> {{object.nombre}} </strong>?</p>
   <input type="submit" value="Eliminar" />
 </form>
 

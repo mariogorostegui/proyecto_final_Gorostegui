@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.urls import path
 
 
-from app_guias.views import AgentesListView,UsuariosListView,AgentesDetailView,AgentesUpdateView,AgentesDeleteView,AgentesCreateView
+from app_guias.views import AgentesListView,UsuariosListView,AgentesDetailView,AgentesUpdateView,AgentesDeleteView,AgentesCreateView, \
+    buscar_agente
 
 
 urlpatterns = [
@@ -12,6 +13,7 @@ urlpatterns = [
     path("actualiza_agente/<int:pk>/",AgentesUpdateView.as_view(),name = "actualiza_agente"),
     path("elimina_agente/<int:pk>/",AgentesDeleteView.as_view(),name = "borra_agente"),
     path("crear_agente/",AgentesCreateView.as_view(),name = "crear_agente"),
+    path("buscar_agente/",buscar_agente,name='buscar_agente'),
     
     path ("usuarios/",UsuariosListView.as_view(),name="Usuarios"),
 

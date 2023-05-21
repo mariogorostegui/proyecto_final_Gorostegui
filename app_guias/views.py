@@ -37,3 +37,19 @@ class AgentesCreateView(CreateView):
     model  = Agentes
     fields = ('nombre_fwr', 'abrev_fwr','cotizador_fwr', 'manager_fwr','operativo_fwe','ctc_fwr')
     success_url = reverse_lazy ('Agentes')
+    
+def buscar_agente (request):
+    
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data ["busqueda"]
+        cursos = Agentes.objects.filter(abrev_fwr__contains = busqueda)
+        contexto = {
+            
+        }
+    http_responde=render(
+            request = request,
+            template_name= "app_guias/lista_agentes.html",
+            context = contexto
+        )
+    return http_responde 
