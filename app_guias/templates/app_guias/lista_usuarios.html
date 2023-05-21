@@ -5,6 +5,15 @@
 <section>
     <div>
       <h1>Lista de Usuarios</h1>
+      <a class="btn btn-primary btn-xs p-1 " href="{% url 'crear_usuario' %}">Nuevo Usuario</a>
+      <br>
+      <br>
+      <form action="{% url 'buscar_usuario' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="busqueda">
+        <input type="submit" value="Buscar x area">
+      </form>
+      <br>
       <ul>
         <table class="table">
           <body>
@@ -12,7 +21,6 @@
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Aerea</th>
-              <th>Elimina</th>
             </tr>  
             {% for usr in object_list %}
             <tr>
@@ -20,13 +28,19 @@
               <td>{{ usr.apellido }}</td>
               <td>{{ usr.area }}</td>
               <td>
-                <a href="">Editar </a>
+                <a href="{% url 'detalle_usuario' usr.id %}">
+                  <i class="bi-eye-fill"></i>
+                </a>
               </td>
               <td>
-                <form action="" method="post">
-                  {% csrf_token %}
-                  <input type="submit" value="eliminar"/>
-                </form>
+                <a href="{% url 'actualiza_usuario' usr.id %}">
+                  <i class="bi-pencil-fill"></i>
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'borra_usuario' usr.id %}">
+                  <i class="bi bi-trash"></i>
+                </a>
               </td>
             </tr>          
             {% endfor %}

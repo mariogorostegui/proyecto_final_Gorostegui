@@ -2,11 +2,20 @@
 
 
 {% block contenido %}
+
 <section>
     <div>
-      <h1>Lista de Agentes de carga</h1>
-      <br>
-      <a class="btn btn-primary" href="{% url 'crear_agente' %}">Cargar Nuevo Agente</a>
+      <h1>Lista de Agentes de carga </h1>        
+        <a class="btn btn-primary btn-xs p-1 " href="{% url 'crear_agente' %}">Nuevo Agente</a>
+        <br>
+        <br>
+        <form action="{% url 'buscar_agente' %}" method="post">
+          {% csrf_token %}
+          <input type="text" name="busqueda">
+          <input type="submit" value="Buscar x abrev">
+        </form>
+        <br>
+
       <ul>
         <table class="table">
           <body>

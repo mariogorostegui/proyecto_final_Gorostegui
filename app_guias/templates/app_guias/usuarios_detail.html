@@ -1,0 +1,28 @@
+{% extends "app_guias/base.html" %}
+
+{% block contenido %}
+
+<p>
+  <strong>Nombre:</strong> {{object.nombre}}   
+</p>
+<br>
+
+<p>
+  <strong>Apoellido:</strong> {{object.apellido}}
+</p>
+
+<p>
+  <strong>Ares de trabajo:</strong> {{object.area}}
+</p>
+<p>
+  <strong>E-mail:</strong> {{object.email}}
+</p>
+<p>
+  <strong>Telefono:</strong> {{object.telefono}}
+</p>
+
+
+<br>
+<a href="{% url 'Usuarios' %}">Volver lista</a>
+
+{% endblock contenido %}
