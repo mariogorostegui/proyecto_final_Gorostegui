@@ -1,0 +1,39 @@
+{% extends 'app_guias/base.html' %}
+
+
+{% block contenido %}
+<section>
+    <div>
+      <h1>Lista de Usuarios</h1>
+      <ul>
+        <table class="table">
+          <body>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Aerea</th>
+              <th>Elimina</th>
+            </tr>  
+            {% for usr in object_list %}
+            <tr>
+              <td>{{ usr.nombre }}</td>
+              <td>{{ usr.apellido }}</td>
+              <td>{{ usr.area }}</td>
+              <td>
+                <a href="">Editar </a>
+              </td>
+              <td>
+                <form action="" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="eliminar"/>
+                </form>
+              </td>
+            </tr>          
+            {% endfor %}
+          </tbody>
+        </table>
+        </ul>
+    </div>
+  </section>
+        
+{% endblock contenido %} 
