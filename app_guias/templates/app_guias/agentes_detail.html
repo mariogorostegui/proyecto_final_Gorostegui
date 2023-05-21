@@ -1,0 +1,30 @@
+{% extends "app_guias/base.html" %}
+
+{% block contenido %}
+
+<p>
+  <strong>Nombre de forwarder:</strong> {{object.nombre_fwr}}   
+</p>
+<br>
+
+<p>
+  <strong>Abrev:</strong> {{object.abrev_fwr}}
+</p>
+
+<p>
+  <strong>Gerente agente de cuentas:</strong> {{object.manager_fwr}}
+</p>
+<p>
+  <strong>Encargado de cotizaciones:</strong> {{object.cotizador_fwr}}
+</p>
+<p>
+  <strong>Operativo a cargo:</strong> {{object.operativo_fwe}}
+</p>
+<p>
+  <strong>Mas Info:</strong> {{object.ctc_fwr}}
+</p>
+
+<br>
+<a href="{% url 'Agentes' %}">Volver lista</a>
+
+{% endblock contenido %}

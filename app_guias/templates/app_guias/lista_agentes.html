@@ -5,26 +5,33 @@
 <section>
     <div>
       <h1>Lista de Agentes de carga</h1>
+      <br>
+      <a href="{% url 'crear_agente' %}">Cargar Nuevo Agente</a>
       <ul>
         <table class="table">
           <body>
             <tr>
               <th>Nombre</th>
               <th>Codigo</th>
-              <th>Elimina</th>
             </tr>  
-            {% for fwr in agentes %}
+            {% for fwr in object_list %}
             <tr>
               <td>{{ fwr.nombre_fwr }}</td>
               <td>{{ fwr.abrev_fwr }}</td>
               <td>
-                <a href="">Editar </a>
+                <a href="{% url 'detalle_agente' fwr.id %}">
+                  <i class="bi-eye-fill"></i>
+                </a>
               </td>
               <td>
-                <form action="" method="post">
-                  {% csrf_token %}
-                  <input type="submit" value="eliminar"/>
-                </form>
+                <a href="{% url 'actualiza_agente' fwr.id %}">
+                  <i class="bi-pencil-fill"></i>
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'borra_agente' fwr.id %}">
+                  <i class="bi bi-trash"></i>
+                </a>
               </td>
             </tr>          
             {% endfor %}
