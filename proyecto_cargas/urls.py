@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/',saludar),
     path('',inicio,name='inicio'),
-    path('app_guias/',include('app_guias.urls'))
+    path('app_guias/',include('app_guias.urls')),
+    path('perfiles/',include('perfiles.urls')),
 
     
 ]

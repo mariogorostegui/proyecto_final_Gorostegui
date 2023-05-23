@@ -27,7 +27,12 @@
                 <a class="navbar-brand" href="{% url 'Usuarios' %}">Usuarios</a>
                 <a class="navbar-brand" href="{% url 'Guias' %}">Guías aereas</a>
                 <a class="navbar-brand" href="{% url 'Agentes' %}">Forwarders</a>
-                <a class="btn btn-primary" href="#signup">Registro</a>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-warning" href={% url 'logout'%}>Cerrar Sesion</a>
+                {% else %}
+                <a class="btn btn-primary" href={% url 'login'%}>Inicio Sesion</a>
+                <a class="btn btn-success" href={% url 'registro'%}>Registro</a>
+                {% endif %}
             </div>
         </nav>
         <section style="padding:80px 150px;">

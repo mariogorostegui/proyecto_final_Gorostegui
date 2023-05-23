@@ -21,6 +21,9 @@
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Aerea</th>
+              <th>Detalles</th>
+              <th>Editar</th>
+              <th>Borrar</th>
             </tr>  
             {% for usr in object_list %}
             <tr>
@@ -38,9 +41,11 @@
                 </a>
               </td>
               <td>
+                {% if user == usr.creador %}
                 <a href="{% url 'borra_usuario' usr.id %}">
                   <i class="bi bi-trash"></i>
                 </a>
+                {% endif %}
               </td>
             </tr>          
             {% endfor %}

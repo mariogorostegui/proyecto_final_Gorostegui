@@ -1,0 +1,13 @@
+{% extends "app_guias/base.html" %}
+
+{% block contenido %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Registrarse" />
+</form>
+
+<br>
+<a href="{% url 'inicio' %}">Regresar</a>
+
+{% endblock contenido %}

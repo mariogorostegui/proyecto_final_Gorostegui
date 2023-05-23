@@ -49,9 +49,11 @@
                 </a>
               </td>
               <td>
+                {% if user == guia.creador %}
                 <a href="{% url 'elimina_guia' guia.id %}">
                   <i class="bi bi-trash"></i>
                 </a>
+                {% endif %}
               </td>
             </tr>          
             {% endfor %}

@@ -22,6 +22,9 @@
             <tr>
               <th>Nombre</th>
               <th>Codigo</th>
+              <th>Detalles</th>
+              <th>Editar</th>
+              <th>Borrar</th>
             </tr>  
             {% for fwr in object_list %}
             <tr>
@@ -38,9 +41,11 @@
                 </a>
               </td>
               <td>
+                {% if user == fwr.creador %}
                 <a href="{% url 'borra_agente' fwr.id %}">
                   <i class="bi bi-trash"></i>
                 </a>
+                {% endif %}
               </td>
             </tr>          
             {% endfor %}
