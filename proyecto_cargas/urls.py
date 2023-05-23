@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from proyecto_cargas.views import saludar,inicio
 
@@ -24,9 +26,12 @@ from proyecto_cargas.views import saludar,inicio
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/',saludar),
-    path('',inicio,name='inicio'),
-    path('app_guias/',include('app_guias.urls')),
-    path('perfiles/',include('perfiles.urls')),
-
-    
+    path('',inicio, name='inicio'),
+    path('app_guias/', include('app_guias.urls')),
+    path('perfiles/', include('perfiles.urls')),
+    path('media',)
 ]
+
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

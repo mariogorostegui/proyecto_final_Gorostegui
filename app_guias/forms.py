@@ -29,3 +29,4 @@ class CargasFormulario (forms.Form):
     ata = forms.DateField(label= "Fecha de AAD (MM/DD/AAA):",required=False)
     estado = forms.CharField(max_length=12, label= "Estado:",required=False)
     retiro = forms.DateField(label= "Fecha de retiro de EZE (MM/DD/AAA):",required=False)
+    
