@@ -22,10 +22,10 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="https://google.com">Google</a> 
+                <img src='\media\logo_renault.png'width="80" height="50"/>
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'Usuarios' %}">Usuarios</a>
-                <a class="navbar-brand" href="{% url 'Guias' %}">Guías aereas</a>
+                <a class="navbar-brand" href="{% url 'Guias' %}">Guías aéreas</a>
                 <a class="navbar-brand" href="{% url 'Agentes' %}">Forwarders</a>
                 {% if user.is_authenticated %}
                 
@@ -40,12 +40,13 @@
                             <a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar mis datos</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="">Agregar avatar</a>
+                            <a class="dropdown-item" href="{% url 'agregar_avatar' %}">Agregar avatar</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a>
                         </li>
                     </ul>
+                    <img src='{{ user.avatar.imagen.url}}'width="50" height="50"/>
                 </div>
                 
                 {% else %}
@@ -76,13 +77,15 @@
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                                <a href="http://facebook.com/RenaultArgentina"><i class="bi-facebook fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                                <a href="https://twitter.com/RenaultArg"><i class="bi-twitter fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
-                                <a href="https://www.instagram.com/espndeportes/?hl=es"><i class="bi-instagram fs-3"></i></a>
+                                <a href="https://www.instagram.com/renaultarg/?hl=es"><i class="bi-instagram fs-3"></i></a>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.linkedin.com/company/renault/"><i class="bi-linkedin fs-3"></i></a>
                             </li>
                         </ul>
                     </div>

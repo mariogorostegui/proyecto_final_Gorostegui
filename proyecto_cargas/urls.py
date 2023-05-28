@@ -29,7 +29,6 @@ urlpatterns = [
     path('',inicio, name='inicio'),
     path('app_guias/', include('app_guias.urls')),
     path('perfiles/', include('perfiles.urls')),
-    path('media',)
 ]
 
 
