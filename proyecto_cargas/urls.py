@@ -19,13 +19,14 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from proyecto_cargas.views import saludar,inicio
+from proyecto_cargas.views import saludar,inicio,ayuda
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/',saludar),
+    path('ayuda/',ayuda,name='ayuda'),
     path('',inicio, name='inicio'),
     path('app_guias/', include('app_guias.urls')),
     path('perfiles/', include('perfiles.urls')),

@@ -18,3 +18,13 @@ def inicio (request):
         context = contexto,
     )
     return http_responde
+
+def ayuda (request):
+    contexto = {}
+    
+    http_responde= render(
+        request=request,
+        template_name= 'app_guias/ayuda.html',
+        context = contexto,
+    )
+    return http_responde
